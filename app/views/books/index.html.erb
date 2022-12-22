@@ -13,9 +13,9 @@
 <% @books.each do |book| %>
 <def>
   <%= image_tag book.get_image %>
-  <p>投稿ユーザー画像：<%= image_tag 'default_image.jpg' %></p>
-  <p>Title：<%= book.shop_name %></p>
-  <p>Body：<%= book.caption %></p>
+  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>Title：<%= book.title %></p>
+  <p>Body：<%= book.body %></p>
   <p>ユーザーネーム：<%= book.user.name %></p>
 </def>
 <% end %>
