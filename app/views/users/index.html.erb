@@ -3,20 +3,19 @@
   <p>name <%= current_user.name %></p>
 <h2>New book</h2>
   <%= form_with model: @book do |f| %>
+    <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
     <h4>Title</h4>
   <%= f.text_field :title %>
     <h4>Opinicn</h4>
   <%= f.text_area :body %>
   <%= f.submit 'Create ' %>
   <% end %>
-<h2>Books</h2>
-<% @books.each do |book| %>
+<h2>Users</h2>
+<% @users.each do |user| %>
 <def>
-  <%= link_to book_path(book.id) do %>
-   <% image_tag book.get_image %>
-  <% end %>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>Title：<%= book.title %></p>
-  <p>Body：<%= book.body %></p>
+  <p>1<%= image_tag user.get_profile_image(100,100) %></p>
+  <p><%= user.name %></p>
+  <p><%= link_to "Show" %></p>
 </def>
 <% end %>

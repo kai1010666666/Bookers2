@@ -1,5 +1,6 @@
 <div>
   <%= image_tag @book.get_image %>
+  <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
   <p><%= @book.title %></p>
   <p><%= @book.body %></p>
   <p>ユーザーネーム：<%= @book.user.name %></p>
