@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <script src="https://kit.fontawesome.com/f03695bd3a.js" crossorigin="anonymous"></script>
   <head>
-    <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,57 +12,66 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to user_path(current_user.id) do %>
-          <i class="fa-sharp fa-solid fa-house-chimney"></i>
-          Home
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <def class="container">
+          <a class="navbar-brand" href="/">
+            <span>Bookers2</span>
+          </a>
+          <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="navbar-text">
+              <%= link_to user_path(current_user.id) do %>
+              <i class="fa-sharp fa-solid fa-house-chimney"></i>
+              Home
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to users_path  do %>
+              <i class="fa-sharp fa-solid fa-users"></i>
+              Users
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to books_path do %>
+              <i class="fa-sharp fa-solid fa-book-open"></i>
+              Books
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Log out
+              <% end %>
+            </li>
+          <% else %>
+            <li class="navbar-text p-2">
+              <%= link_to root_path do %>
+              <i class="fa-sharp fa-solid fa-house-chimney"></i>
+              Home
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to about_path do %>
+              <i class="fa-sharp fa-solid fa-link"></i>
+              About
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to new_user_registration_path do %>
+              <i class="fa-sharp fa-solid fa-user-plus"></i>
+              Sign up
+              <% end %>
+            </li>
+            <li class="navbar-text p-2">
+              <%= link_to new_user_session_path do %>
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Log in
+              <% end %>
+            </li>
           <% end %>
-        </li>
-        <li>
-          <%= link_to users_path  do %>
-          <i class="fa-sharp fa-solid fa-users"></i
-          >Users
-          <% end %>
-        </li>
-        <li>
-          <%= link_to books_path do %>
-          <i class="fa-sharp fa-solid fa-book-open"></i>
-          Books
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Log out
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to  root_path do %>
-          <i class="fa-sharp fa-solid fa-house-chimney"></i>
-          Home
-          <% end %>
-        </li>
-        <li>
-          <%= link_to about_path do %>
-          <i class="fa-sharp fa-solid fa-link"></i>
-          About
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_registration_path do %>
-          <i class="fa-sharp fa-solid fa-user-plus"></i>
-          Sign up
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_session_path do %>
-          <i class="fa-solid fa-right-to-bracket"></i>
-          Log in
-          <% end %>
-        </li>
-      <% end %>
+          </ul>
+        </def>
+      </nav>
     </header>
     <%= yield %>
   </body>
