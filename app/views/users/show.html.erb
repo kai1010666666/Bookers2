@@ -1,18 +1,14 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
-    <p><%= link_to "人型のアイコン", edit_user_path(@user.id) %></p>
-  <% end %>
-</div>
+<%= render 'books/list', user: @user %>
 
 <% @books.each do |book| %>
 <div>
+  <p><%= image_tag @user.get_profile_image(100,100) %></p>
+  <p>Title : 
   <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
+  <%= book.title %>
   <% end %>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
+  </p>
+  <p>Body：<%= book.body %></p>
   <p><%= book.user.name %></p>
 </div>
 <% end %>

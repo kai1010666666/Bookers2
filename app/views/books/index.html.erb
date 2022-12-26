@@ -1,22 +1,14 @@
-<h2>User info</h2>
-  <p><%= image_tag 'default-image.jpg' %></p>
-  <p>name <%= current_user.name %></p>
-<h2>New book</h2>
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-  <%= f.text_field :title %>
-    <h4>Opinicn</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create ' %>
-  <% end %>
+<%= render 'list', user: current_user %>
+
 <h2>Books</h2>
 <% @books.each do |book| %>
 <def>
-  <%= link_to book_path(book.id) do %>
-   <% image_tag book.get_image %>
-  <% end %>
   <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>Title：<%= book.title %></p>
+  <p>Title : 
+  <%= link_to book_path(book.id) do %>
+  <%= book.title %>
+  <% end %>
+  </p>
   <p>Body：<%= book.body %></p>
 </def>
 <% end %>
