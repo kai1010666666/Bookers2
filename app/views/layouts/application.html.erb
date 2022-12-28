@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Bookers2</title>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <def class="container">
+        <div class="container">
           <a class="navbar-brand" href="/">
             <span>Bookers2</span>
           </a>
@@ -70,19 +70,21 @@
             </li>
           <% end %>
           </ul>
-        </def>
+        </div>
       </nav>
     </header>
-    <%= flash[:notice] %>
-    <%= yield %>
+      <main>
+       <p id="notice"><%= flash[:notice] %></p>
+      <%= yield %>
+      </main>
     <footer>
-      <def class="container mt-5">
-        <def class="row">
-          <def class="mx-auto">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
-          </def>
-        </def>
-      </def>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 
