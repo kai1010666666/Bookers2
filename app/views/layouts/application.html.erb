@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://kit.fontawesome.com/f03695bd3a.js" crossorigin="anonymous"></script>
   <head>
+    <script src="https://kit.fontawesome.com/f03695bd3a.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,11 +15,11 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <span>Bookers2</span>
+            <span>Bookers</span>
           </a>
           <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <li class="navbar-text">
+            <li class="navbar-text p-2">
               <%= link_to user_path(current_user.id) do %>
               <i class="fa-sharp fa-solid fa-house-chimney"></i>
               Home
